@@ -39,3 +39,4 @@ build/
 
 ### Other ###
 /SQL_Scripts
+/src/main/resources/app.properties

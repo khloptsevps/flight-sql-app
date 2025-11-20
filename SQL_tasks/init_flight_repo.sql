@@ -39,6 +39,8 @@ CREATE TABLE seat
     seat_number ,
 );
 
+CREATE UNIQUE INDEX unique_?_idx ON ();
+
 #Таблица маршрутов
 CREATE TABLE flight
 (

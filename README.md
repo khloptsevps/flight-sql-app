@@ -42,14 +42,16 @@ SELECT flight_number,
 FROM flight;
 ```
 
-**3. Свободные места на рейс:**
+**2. Свободные места на рейс:**
 
 ```sql
-SELECT s.seat_number
-FROM seat s
-         LEFT JOIN ticket t
-                   ON s.aircraft_id = t.flight_id AND s.seat_number = t.seat_number
-WHERE s.aircraft_id = 1 AND t.id IS NULL;
+SELECT f.id route_id, s.seat_number free_seat
+FROM flight f
+         JOIN aircraft ac ON f.aircraft_id = ac.id
+         JOIN seat s ON ac.id = s.aircraft_id
+         LEFT JOIN ticket t ON t.flight_id = f.id AND t.seat_number = s.seat_number
+WHERE t.seat_number IS NULL
+  AND f.id = 1;
 ```
 
 ---
